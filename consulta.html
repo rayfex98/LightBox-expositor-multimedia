@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Supabase</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Supabase JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Vue 3 JS -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body class="bg-light">
+    
+    <div id="app" class="container py-5">
+        <h1 class="text-center mb-5">Nuestros Productos</h1>
+        
+        <!-- Indicador de carga -->
+        <div v-if="loading" class="d-flex justify-content-center">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Cargando...</span>
+            </div>
+        </div>
+
+        <!-- Mensaje de error -->
+        <div v-if="error" class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+
+        <!-- Grilla de productos (3 por fila en desktop) -->
+        <div v-if="!loading && productos.length > 0" class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col" v-for="producto in productos" :key="producto.id">
+                <div class="card h-100 shadow-sm">
+                    <!-- Usamos un div con imagen de fondo o una img normal, img normal es más simple -->
+                    <img :src="producto.url" class="card-img-top" :alt="producto.nombre" style="height: 250px; object-fit: cover;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{ producto.nombre }}</h5>
+                        <p class="card-text text-primary fw-bold fs-5">${{ producto.precio }}</p>
+                        <p class="card-text mt-auto"><small class="text-muted">Stock disponible: {{ producto.stock }}</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mensaje si no hay productos -->
+        <div v-if="!loading && productos.length === 0 && !error" class="alert alert-info text-center">
+            No se encontraron productos.
+        </div>
+    </div>
+
+    <!-- Configuraciones (No subir a github) -->
+    <script src="config.js"></script>
+    <!-- Lógica de la aplicación -->
+    <script src="supa.js"></script>
+</body>
+</html>
