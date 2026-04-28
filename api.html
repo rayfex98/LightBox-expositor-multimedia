@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CatAAS</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        header{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 10px 10px;
+        }
+        .michiContenedor{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70vh;
+        }
+        .michiContenedor img{ 
+            max-width: 800px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bienvenido sistema de distribucion de michis</h1>
+    <button class="button" onclick="getApiData()">Obtener michi</button>
+    
+    </header>
+    <article class="michiContenedor">
+        
+    </article>
+</body>
+<script>
+    const getApiData = async () => {
+        const url = "https://cataas.com/cat?json=true";
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data);
+        document.querySelector(".michiContenedor").innerHTML = `<img src="${data.url}" alt="Un michi">`;
+    }
+</script>
+</html>
