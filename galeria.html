@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagen que muestra galeria de imagenes</title>
+    
+  <!-- FancyBox CSS (CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <main>
+     <!-- ===================== SECCIÓN 1: GALERÍA DE IMÁGENES ===================== -->
+    <section id="gallery-section">
+      <div class="section-label"><span></span> Ejemplo adicional</div>
+      <h2>Galería de Imágenes</h2>
+      <p>
+        Los elementos agrupados con el mismo valor en <code>data-fancybox="gallery"</code>
+        forman una galería navegable. En un primer momento se muestra una sola imagen, al hacer clic en ella, se muestra
+        la galería ya que el resto de las imagenes tienen un display none.
+      </p>
+
+      <div class="gallery-grid" id="gallery-wrap">
+        
+        <a href="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920&q=90" data-fancybox="gallery"
+          data-caption="<strong>Pico Nevada al Amanecer</strong><br>Cordillera de los Alpes, Suiza"
+          class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80"
+            alt="Pico Nevada al Amanecer"/>
+          <div class="overlay">
+            <span class="overlay-text">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.35-4.35" />
+                <path d="M11 8v6M8 11h6" />
+              </svg>
+              Ver galeria
+            </span>
+          </div>
+        </a>
+
+        <a href="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=90" data-fancybox="gallery"
+          data-caption="<strong>Valle de Niebla</strong><br>Sierra Nevada, España" class="gallery-item hidden">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Valle de Niebla"
+            loading="lazy" />
+          <div class="overlay">
+            <span class="overlay-text">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.35-4.35" />
+                <path d="M11 8v6M8 11h6" />
+              </svg>
+              Ver en grande
+            </span>
+          </div>
+        </a>
+
+        <a href="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&q=90" data-fancybox="gallery"
+          data-caption="<strong>Cima Nocturna</strong><br>Montañas Rocosas, Canadá" class="gallery-item hidden">
+          <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=600&q=80"
+            alt="Cima Nocturna con Estrellas" loading="lazy" />
+          <div class="overlay">
+            <span class="overlay-text">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.35-4.35" />
+                <path d="M11 8v6M8 11h6" />
+              </svg>
+              Ver en grande
+            </span>
+          </div>
+        </a>
+
+        <a href="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1920&q=90" data-fancybox="gallery"
+          data-caption="<strong>Otoño en la Cordillera</strong><br>Dolomitas, Italia" class="gallery-item hidden">
+          <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=600&q=80"
+            alt="Otoño en la Cordillera" loading="lazy" />
+          <div class="overlay">
+            <span class="overlay-text">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.35-4.35" />
+                <path d="M11 8v6M8 11h6" />
+              </svg>
+              Ver en grande
+            </span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+  </main>
+</body>  
+<!-- FancyBox JS (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.js"></script>
+<script defer>
+    // ── Galería de imágenes con thumbnails habilitados ──────────────────────
+    Fancybox.bind('[data-fancybox="gallery"]', {
+      Carousel: {
+        infinite: true,
+      },
+      Images: {
+        zoom: true,
+      },
+    });
+</script>
+</html>
